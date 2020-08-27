@@ -7,7 +7,41 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const words = ['Application', 'Hangman', 'Education', 'Interface'];
+// fetch('https://random-word-api.herokuapp.com/word?number=25')
+//   .then((res) => res.json())
+//   .then((data) => words.concat(data));
+
+let words = [
+  'antelope',
+  'kitten',
+  'mouse',
+  'elephant',
+  'monkey',
+  'goat',
+  'python',
+  'zebra',
+  'lizard',
+  'rhinoceros',
+  'cat',
+  'dog',
+  'cockroach',
+  'tiger',
+  'lion',
+  'dragonfly',
+  'grasshopper',
+  'wolf',
+  'scorpion',
+  'hyena',
+  'jaguar',
+  'panther',
+  'giraffe',
+  'porcupine',
+  'sardine',
+  'tilapia',
+  'goldfish',
+  'cheetah',
+  'eel',
+];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
@@ -63,7 +97,7 @@ function displayWord() {
 
 window.addEventListener('keydown', (e) => {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
-    const letter = e.key;
+    const letter = e.key.toLocaleLowerCase();
 
     if (selectedWord.includes(letter)) {
       if (!correctLetters.includes(letter)) {
